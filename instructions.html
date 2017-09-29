@@ -20,9 +20,9 @@
             <div class="container">
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Welcome</a></li>
+                        <li><a href="index.html">Welcome</a></li>
                         <li><a href="questionnaire-pre.html">Pre Questionnaire</a></li>
-                        <li><a href="instructions.html">Instructions</a></li>
+                        <li class="active"><a href="instructions.html">Instructions</a></li>
                         <li><a href="experiment.html">Experiment</a></li>
                         <li><a href="questionnaire-post.html">Post Questionnaire</a></li>
                     </ul>
@@ -33,17 +33,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-1">
-                    <h1>Welcome!</h1>
+                    <h1>Instructions</h1>
                     <hr>
-                    <p>This is a new copy pasting technique called AutoCompaste. Please take your time to explore the new copy pasting technique!</p>
+                    <p>Dear participant <span class="js-pid pid"></span>, please read the instructions before the experiment.
 
-                    <p>Please write your participant number ID as given by your experimenter. Participant IDs should only consist of alphanumeric characters.</p>
-                    <form class="form-inline" id="pid-form">
-                        <div class="form-group">
-                            <label for="pid">Participant ID</label>
-                            <input name="pid" type="text" class="form-control" id="pid" placeholder="E.g. P01">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <p>1. We will be introducing you a new technique called AutoCompaste. Please refer to the diagrams below to know how to use it.<p>
+					<p>2. We will be using AutoCompaste in different ways to test its viability. Namely, copy pasting phrases, sentences and paragraphs.<p>
+					<p>3. We will also be alternating between AutoCompaste and the traditional way of Copy pasting(Ctrl C-Ctrl V) to allow you to be able to differentiate between the 2 techniques.<p>
+					<img src="/img/AutoCompasteSentence.png" alt="autocompastesentence" style="width:1000px;height:500px;">
+					<p>4. This is the first example of using AutoCompaste. To use AutoCompaste, type out the sentence/phrase/paragraph as shown in the red box. The Text Editor will detect possible answers for you to choose from.<p>
+                    <p>5. Once done, click on Next Task to go to the next task</p>
+					<img src="/img/TRADITIONALSentence.png" alt="traditionalsentence" style="width:1000px;height:500px;">
+					<p>6. This is the traditional way of copying and pasting. Find the relevant text within the red box and check through the windows for the text highlighted in yellow and copy and paste it into the Text Editor.<p>
+					<p>7. Continue to do so until all the trials are done.<p>
+
+                    <form class="form-inline">
+                        <button type="submit" class="btn btn-primary btn-lg">Next</button>
                     </form>
                 </div>
             </div>
@@ -57,15 +62,9 @@
 
         <script>
             $(function () {
-                $('#pid-form').submit(function (event) {
+                $('form').submit(function (event) {
                     event.preventDefault();
-                    var pid = $('#pid').val();
-                    if (pid) {
-                        ACPToolKit.setCurrentParticipantId(pid);
-                        window.location = 'questionnaire-pre.html';
-                    } else {
-                        alert('Please enter a valid Participant ID (pid)!');
-                    }
+                    window.location = 'experiment.html';
                 });
             });
         </script>
